@@ -68,7 +68,7 @@ class Home extends Component {
         })
         // console.log(data);
         if(Object.entries(data).length>0){
-            window.location.href="http://127.0.0.1:5000/getDoc?data="+JSON.stringify(data);
+            window.location.href="https://thirdeyep.azurewebsites.net/getDoc?data="+JSON.stringify(data);
         }
     }
 
