@@ -110,7 +110,7 @@ class Login extends Component {
                                                 <span>Remember Me</span>
                                             </div>
                                             <div className="forgotPassword">
-                                                <a href="" style={{color: '#7F39FB'}}>Forgot Password?</a>
+                                                <a href="/test" style={{color: '#7F39FB'}}>Forgot Password?</a>
                                             </div>
                                         </div>
                                         <div className="loginBtn">
