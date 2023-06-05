@@ -5,14 +5,33 @@
     display: flex;
 }
 
+.menuIcon
+{
+    position: absolute;
+    display: flex;
+    z-index: 1;
+    /* padding-top: 5px; */
+    margin-top: 10px;
+}
+.sidebar
+{
+    position: absolute;
+    width: 40px;
+    height: 609px;
+    /* left: 0px; */
+    /* top: 0px; */
+    background: #393939;
+    border-radius: 0px 0px 20px 0px;
+}
 .topPanel
 {
     display :flex;
 position: sticky;
-width: 100%;
+/* width: 100%; */
 height: 50px;
 background: #393939;
 border-radius: 0px 0px 20px 0px;
+left: 40px;
 }
 
 .thirdEyeLogo
@@ -31,26 +50,31 @@ border-radius: 0px 0px 20px 0px;
 
 .thirdEyeLabel
 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
     display: flex;
-    color: white;
-    position: absolute;
-    margin-left: 40px;
-    padding-top: 2px;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    margin-left: 30px;
+    margin-bottom: 10px;
 }
 
 .userMenuPanel
 {
-    color: white;
+    width: 66%;
     display: flex;
-    width: 100%;
     position: relative;
     justify-content: end;
-    padding: 10px 20px 0 0;
+    margin-top: 10px;
 }
 
 .pr-30
 {
-    padding-right: 30px;
+    margin-right: 30px;
 }
 
 .inputTextPanel

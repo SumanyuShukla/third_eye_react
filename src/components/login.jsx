@@ -7,13 +7,15 @@ import "./global.css";
 import "./login.css";
 import {ReactComponent as ThirdEyeLogo} from "../ThirdEyeLogo.svg";
 import {ReactComponent as Genie} from "../Genie.svg";
+import {ReactComponent as Leader} from "../Leader.svg";
+import {ReactComponent as Dashboards} from "../Dashboards.svg";
 import {ReactComponent as Person} from "../person.svg";
 import {ReactComponent as EY} from "../EY_logo_2019.svg";
 import Loader from "./loader";
 import { ReactNotifications,Store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css'
 import { Navigate } from 'react-router-dom';
-import Carousel from "./carousel";
+import Carousel from 'react-bootstrap/Carousel';
 import { FaLock } from 'react-icons/fa';
 
 class Login extends Component {
@@ -31,7 +33,6 @@ class Login extends Component {
             [e.target.name]:e.target.value
         })
     }
-
 
 
     loginRequest=()=>{
@@ -63,34 +64,61 @@ class Login extends Component {
         return(
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-md-4 sidebarPanel">
+                    <div className="col-md-4 sidebarPanel float-left">
                         <div className="row">
-                            <div className="col-md-4"></div>
-                            <div className="col-md-4" style={{marginLeft:'28px'}}>
+                            <div className="col-md-4 float-left thirdEyeLogo" >
                                 <ThirdEyeLogo fill="white"/>
                             </div>
                         </div>
                         <div className="row">
-                             <Genie height='100%'/>
+                             {/* <Genie height='100%'/> */}
+                             <Carousel>
+      <Carousel.Item>
+      <Genie height='100%'/>
+        <Carousel.Caption>
+        <h3>Create tailored business proposals!</h3>
+                <p>Craft compelling proposals tailored to your clients' needs and win more business with ease using our user-friendly magic business proposal.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+      <Leader height='100%'/>
+
+        <Carousel.Caption>
+            <h3>Meet your client expectations in quick time!</h3>
+                <p>Deliver personalized business proposals that cater to your clients' unique needs and preferences swiftly and effortlessly with our magic business proposal generation.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+      <Dashboards height='100%'/>
+
+        <Carousel.Caption>
+        <h3>Win deals with magic proposals!</h3>
+                <p>Unleash the power of magic proposals to captivate clients and secure winning deals that leave a lasting impression!</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
+ 
                         </div>
-                        <div className="row">
-                            <div className="col-md-12 carousel-caption">
+                        {/* <div className="row">
+                            <div className="col-md-12 carousel-caption float-left">
                                 <h3>Create tailored business proposals!</h3>
                                 <p>Craft compelling proposals tailored to your clients' needs and win more business with ease using our user-friendly magic business proposal.</p>
                             </div>
-                        </div>
+                        </div> */}
 
                     </div>
-                    <div className="col-md-6">
-                        <div className="row" style={{height:'10%'}}></div>
+                    <div className="col-md-6 float-left">
                         <div className="row">
-                            <div className="col-md-3"></div>
-                            <div className="col-md-8">
+                            <div className="col-md-4 float-left"></div>
+                            <div className="col-md-8 float-left">
                                 <div className="row">
-                                    <Person fill="#7F39FB"/>
+                                <div className="col-md-3 float-left person-icon">
+                                <Person fill="#7F39FB"/>
+                                </div>
+                                    
                                 </div>
                                 <div className="row">
-                                    <div className="col-md-12 loginBox">
+                                    <div className="col-md-12 loginBox float-left">
                                         <div className="loginLabel">
                                             <h1>Login</h1>
                                         </div>
@@ -100,8 +128,8 @@ class Login extends Component {
                                         </div>
                                         <div className="loginForm">
                                             <form>
-                                                <input type="text" name="username" onChange={this.changeHandler}/><span><FaLock/></span>
-                                                <input type="text" name="password" onChange={this.changeHandler}/><span><FaLock/></span>
+                                                <input type="text" name="username" placeholder={'Email'} onChange={this.changeHandler}/><span><FaLock/></span>
+                                                <input type="password" name="password" placeholder={'Password'} onChange={this.changeHandler}/><span><FaLock/></span>
                                             </form>
                                         </div>
                                         <div className="actionLinks">
@@ -114,7 +142,7 @@ class Login extends Component {
                                             </div>
                                         </div>
                                         <div className="loginBtn">
-                                            <input type="button" style={{backgroundColor: '#7F39FB',padding: '8px 96px'}} value="Login" onClick={this.loginRequest} />
+                                            <input type="button" style={{background: '#7F39FB',padding: '8px 96px', border:'2px', color:'#FFFFFF'}} value="Login" onClick={this.loginRequest} />
                                         </div>
                                         <div className="registeration">
                                             <span>Don't have an account?</span>
@@ -125,7 +153,7 @@ class Login extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-2" style={{marginLeft:'40px'}}>
+                    <div className="col-md-2 float-left eyLogo">
                         <EY/>
                     </div>
                 </div>

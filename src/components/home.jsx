@@ -6,8 +6,13 @@ import { isLoggedIn, loader, chat } from "../redux/action";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./global.css";
 import "./chat.css";
-import thirdEye from "../ThirdEyeLogo.svg";
+import {ReactComponent as Refresh} from "../refresh.svg";
+import {ReactComponent as Help} from "../Help.svg";
+import {ReactComponent as Notification} from "../notification.svg";
+import {ReactComponent as User} from "../user.svg";
+import {ReactComponent as ThirdEyeLogo} from "../ThirdEyeLogo.svg";
 import Loader from "./loader";
+import {ReactComponent as Menu} from "../Menu.svg";
 import { ReactNotifications,Store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css'
 import { Navigate } from 'react-router-dom';
@@ -79,19 +84,33 @@ class Home extends Component {
         }else{
         let chat=<div style={{height:'400px'}}></div>;
         if(this.props.chat.chat !=''&&this.props.chat.chat!=null){
-        chat=this.props.chat.chat.map((c,index)=>{return c.sender=="delphi"?<div className="row" key={index}><div className="col-md-8 delphiMessage" style={{whiteSpace: "pre-line",marginLeft:"15px"}}>{c.message}</div></div>
-        :<div className="row" key={index}><div className="col-md-4"></div><div className="col-md-8 userMessage" style={{whiteSpace: "pre-line"}}>{c.message}</div></div>})
+        chat=this.props.chat.chat.map((c,index)=>{return c.sender=="delphi"?<div className="row" key={index}><div className="col-md-4 delphiMessage" style={{whiteSpace: "pre-line",marginLeft:"55px"}}>{c.message}</div>
+        </div>
+        :<div className="row" key={index}><div className="col-md-8"></div><div className="col-md-4 userMessage" style={{whiteSpace: "pre-line"}}>{c.message}</div></div>})
         }
         return(
             <div className="container-fluid">
-                <div className="row header">
-                    <div className="col-md-1">
-                        <img src={thirdEye} style={{color:'white'}} alt="SVG"/>
+                <div className="row header ">
+                <div className="col-md-2 float-left sidebar">
+                <Menu className="menuIcon"/>
                     </div>
-                    <div className="col-md-8">
-                        <h4 style={{paddingTop:'7px',marginLeft:'-30px'}}>Third Eye</h4>
+                    <div className="col-md-4 float-left topPanel">
+                    <ThirdEyeLogo fill="#7F39FB" style={{width:'20px',height: '20px',margin:'10px 0 0 50px'}}/>
+                        <span className="thirdEyeLabel">Third Eye</span>
                     </div>
-                </div>
+                    <div className="col-md-6 float-left userMenuPanel">
+                    <Refresh fill="white" style={{width:'20px',height: '20px',}}/>
+                    <Help fill="white" style={{width:'20px',height: '20px', margin:'0 0 0 10px'}}/>
+                    <Notification  fill="white" style={{width:'20px',height: '20px', margin:'0 0 0 10px'}}/>
+                    <User fill="white" style={{width:'20px',height: '20px', margin:'0 0 0 10px'}}/>
+                    </div>
+                    </div>
+                    {/* <div className="row header topPanel">
+                    
+                    <div className="col-md-2 float-left">
+                        
+                    </div>
+                </div> */}
                 <div className="row">
                    {chat}
                 </div>
