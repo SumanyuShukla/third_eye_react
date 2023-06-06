@@ -82,7 +82,7 @@ class Home extends Component {
         if(!this.props.isLoggedIn){
             return <Navigate to='/' />
         }else{
-        let chat=<div style={{height:'400px'}}></div>;
+        let chat=<div style={{height:'400px', overflow:"hidden"}}></div>;
         if(this.props.chat.chat !=''&&this.props.chat.chat!=null){
         chat=this.props.chat.chat.map((c,index)=>{return c.sender=="delphi"?<div className="row" key={index}><div className="col-md-4 delphiMessage" style={{whiteSpace: "pre-line",marginLeft:"55px"}}>{c.message}</div>
         </div>
