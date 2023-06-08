@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { getResponse } from "../redux/thunks";
+import { getDocResponse } from "../redux/thunks";
 import { connect } from 'react-redux';
 import Image from "./image";
-import { isLoggedIn, loader, chat } from "../redux/action";
+import { isLoggedIn, loader, chatdoc } from "../redux/action";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./global.css";
 import "./chat.css";
@@ -17,7 +17,7 @@ import { ReactNotifications,Store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css'
 import { Navigate } from 'react-router-dom';
 
-class Home extends Component {
+class ChatDoc extends Component {
 
     constructor(props){
         super(props);
@@ -37,10 +37,10 @@ class Home extends Component {
     sendRequest=()=>{
         if(this.state.prompt!=''){
             let obj={"sender":"user","message":this.state.prompt};
-            this.props.setChat(obj);
+            this.props.setChatDoc(obj);
             document.getElementById("text").value="";
             // console.log(this.props.template);
-            this.props.getResponse(this.state.prompt,this.props.template);
+            this.props.getDocResponse(this.state.prompt,this.props.userid);
         }else{
             Store.addNotification({
                 title: "No Message",
@@ -64,7 +64,7 @@ class Home extends Component {
         let chat=this.props.chat.chat;
         let count=0;
         chat.forEach((c,i)=>{
-            if(c.sender=="delphi" && (!c.message.includes("How can I assist you today") && !c.message.includes("Hello") && !c.message.includes("Hi") && !c.message.includes("Hey"))){
+            if(c.sender=="delphi" && (!c.message.includes("How can I assist you today") || !c.message.includes("Hello") || !c.message.includes("Hi") || !c.message.includes("Hey"))){
                 // let obj={}
                 let attr="p"+count;
                 data[attr]=c.message;
@@ -75,18 +75,18 @@ class Home extends Component {
         // console.log(data);
         if(Object.entries(data).length>0){
             window.location.href="https://thirdeyep.azurewebsites.net/getDoc?data="+JSON.stringify(data);
-            // window.location.href="http://127.0.0.1:5000/getDoc?data="+JSON.stringify(data);
         }
     }
 
 
     render(){
-        if(!this.props.isLoggedIn){
-            return <Navigate to='/' />
-        }else{
+        // if(!this.props.isLoggedIn){
+        //     return <Navigate to='/' />
+        // }else{
         let chat=<div style={{height:'400px'}}></div>;
-        if(this.props.chat.chat !=''&&this.props.chat.chat!=null){
-        chat=this.props.chat.chat.map((c,index)=>{return c.sender=="delphi"?<div className="row" key={index}><div className="col-md-4 delphiMessage" style={{whiteSpace: "pre-line",marginLeft:"55px"}}>{c.message}</div>
+        // console.log(this.props.chatdoc.chatdoc)
+        if(this.props.chatdoc.chatdoc !=''&&this.props.chatdoc.chatdoc!=null){
+        chat=this.props.chatdoc.chatdoc.map((c,index)=>{return c.sender=="delphi"?<div className="row" key={index}><div className="col-md-4 delphiMessage" style={{whiteSpace: "pre-line",marginLeft:"55px"}}>{c.message}</div>
         </div>
         :<div className="row" key={index}><div className="col-md-8"></div><div className="col-md-4 userMessage" style={{whiteSpace: "pre-line"}}>{c.message}</div></div>})
         }
@@ -128,34 +128,35 @@ class Home extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-2">
+                    {/* <div className="col-md-2">
                         <input type="button" className="btn1" value="Download" onClick={this.createDoc} />
-                    </div>  
+                    </div>   */}
                 </div>  
             </div>
         )
-        }
+        // }
     }
 }
 
 const mapStateToProps = state => ({
     getLoader:state.loader,
-    chat:state.chat,
+    chatdoc:state.chatdoc,
     isLoggedIn:state.isLoggedIn,
-    template:state.template
+    template:state.template,
+    userid:state.userid
 });
 
 const mapDispatchToProps=dispatch=>({
-    getResponse:(prompt,template)=>{
-        dispatch(getResponse(prompt,template))
+    getDocResponse:(prompt,id)=>{
+        dispatch(getDocResponse(prompt,id))
     },
     setLoader:(val)=>{
         dispatch(loader(val))
     },
-    setChat:(val)=>{
-        dispatch(chat(val))
+    setChatDoc:(val)=>{
+        dispatch(chatdoc(val))
     }
 });
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(Home);
+export default connect(mapStateToProps,mapDispatchToProps)(ChatDoc);

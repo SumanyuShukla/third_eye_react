@@ -59,7 +59,7 @@ class Login extends Component {
 
     render(){
         if(this.props.isLoggedIn){
-            return <Navigate to='/chat' />
+            return <Navigate to='/template' />
         }else{
         return(
             <div className="container-fluid">

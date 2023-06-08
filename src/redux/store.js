@@ -1,13 +1,16 @@
 import {createStore,combineReducers,applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import { stylizedImage, loader, chat, isLoggedIn } from './reducer';
+import { template, loader, chat, isLoggedIn, chatdoc, uploaded, userid } from './reducer';
 import {composeWithDevTools} from 'redux-devtools-extension';
 
 const reducers={
-    stylizedImage,
     loader,
     chat,
-    isLoggedIn
+    chatdoc,
+    isLoggedIn,
+    template,
+    uploaded,
+    userid
 };
 
 const rootReducer=combineReducers(reducers);
