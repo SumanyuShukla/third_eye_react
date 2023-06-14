@@ -116,7 +116,7 @@ class ChatDoc extends Component {
                 <div className="row">
                    {chat}
                 </div>
-                <div className="row buttonDiv">
+                <div className="row buttonDiv1">
                     <div className="col-md-3"></div>
                     <div className="col-md-6 textDiv">
                         <div className="row">

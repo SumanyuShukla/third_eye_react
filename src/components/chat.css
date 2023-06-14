@@ -162,3 +162,10 @@ left: 40px;
     z-index: 1;
     right: 34px;
 }
+
+.buttonDiv1{
+    position:fixed;
+   bottom:0;
+   width:100%;
+   height:60px;
+  }
