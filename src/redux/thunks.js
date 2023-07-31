@@ -4,7 +4,7 @@ import { Store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css'
 
 
-let baseUrl="https://thirdeyep.azurewebsites.net/"
+let baseUrl="https://dragonfly-third-eye.azurewebsites.net/"
 // let baseUrl="http://127.0.0.1:5000/"
 
 export const getResponse=(prompt,template)=>async (dispatch, getState)=>{

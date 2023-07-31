@@ -174,7 +174,7 @@ left: 40px;
     /* color: #161616; */
     left: 120px;
     top: 50px;
-    color: #161616;
+    color: white;
 }
 
 .scratchBtn
@@ -202,7 +202,7 @@ bottom: 10px;
     margin: auto;
     justify-content: center;
     /* text-align: center; */
-    padding-top: 30px;
+    padding-top: 30px;  
 }
 
 .scratchLabel h1
@@ -212,7 +212,7 @@ bottom: 10px;
     font-weight: 700;
     font-size: 28px;
     line-height: 36px;
-    color: #000000;
+    color: white;
     margin: auto;
 }
 
@@ -222,7 +222,7 @@ bottom: 10px;
     position: relative;
     margin: auto;
     width: 100%;
-    background: #FFFFFF;
+    background: #3a3a4a;
     border: 1px solid #E0E0E0;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
     margin-top: 40px;
@@ -244,17 +244,17 @@ bottom: 10px;
 
 .exampleBtn
 {
-    background: #FFFFFF;
+    background: #3a3a4a;
     border-radius:6px;
     padding: 3px 15px 3px 4px;
-    border:2px solid #7F39FB;
-    color:#7F39FB;
+    border:2px solid white;
+    color:white;
 }
 .proceedBtn
 {
-    background: rgb(127, 57, 251);
+    background: #3a3a4a;
     padding: 3px 84px 5px 65px;
-    border: 2px;
+    border:2px solid white;
     color: rgb(255, 255, 255);
     border-radius: 6px;
 }
@@ -276,7 +276,7 @@ bottom: 10px;
     font-size: 18px;
     line-height: 22px;
     width: 100%;
-    color: #000000;
+    color: white;
 }
 
 .scratchMessage2
@@ -288,7 +288,7 @@ bottom: 10px;
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.16px;
-    color: #000000;
+    color: white;
     padding-top: 30px;
     padding-left: 25px;
 }
@@ -311,7 +311,7 @@ bottom: 10px;
     display: flex;
     /* align-items: center; */
     /* text-align: center; */
-    color: #525252;
+    color: white;
     justify-content: center;
 }
 
@@ -330,7 +330,7 @@ letter-spacing: 0.16px;
 
 /* $text-02 */
 
-color: #525252;
+color: white;
 }
 
 .continueBtnDiv

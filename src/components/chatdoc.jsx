@@ -86,13 +86,13 @@ class ChatDoc extends Component {
         let chat=<div style={{height:'400px'}}></div>;
         // console.log(this.props.chatdoc.chatdoc)
         if(this.props.chatdoc.chatdoc !=''&&this.props.chatdoc.chatdoc!=null){
-        chat=this.props.chatdoc.chatdoc.map((c,index)=>{return c.sender=="delphi"?<div className="row" key={index}><div className="col-md-4 delphiMessage" style={{whiteSpace: "pre-line",marginLeft:"55px"}}>{c.message}</div>
+        chat=this.props.chatdoc.chatdoc.map((c,index)=>{return c.sender=="delphi"?<div className="row" key={index}><div className="col-md-4 msg rcvd" style={{whiteSpace: "pre-line",marginLeft:"55px"}}>{c.message}</div>
         </div>
-        :<div className="row" key={index}><div className="col-md-8"></div><div className="col-md-4 userMessage" style={{whiteSpace: "pre-line"}}>{c.message}</div></div>})
+        :<div className="row" key={index}><div className="col-md-8"></div><div className="col-md-4 msg sent" style={{whiteSpace: "pre-line"}}>{c.message}</div></div>})
         }
         return(
             <div className="container-fluid">
-                <div className="row header ">
+                {/* <div className="row header ">
                 <div className="col-md-2 float-left sidebar">
                 <Menu className="menuIcon"/>
                     </div>
@@ -106,6 +106,11 @@ class ChatDoc extends Component {
                     <Notification  fill="white" style={{width:'20px',height: '20px', margin:'0 0 0 10px'}}/>
                     <User fill="white" style={{width:'20px',height: '20px', margin:'0 0 0 10px'}}/>
                     </div>
+                    </div> */}
+
+                    <div className="col-12 chatbot-header">
+                    <img className="mx-3" src="/assets/images//Robot.svg" alt="EY" />
+                    <div className="chatbot-header-text"></div>
                     </div>
                     {/* <div className="row header topPanel">
                     
@@ -113,18 +118,18 @@ class ChatDoc extends Component {
                         
                     </div>
                 </div> */}
-                <div className="row">
+                <div className="row chatbot-body">
                    {chat}
                 </div>
-                <div className="row buttonDiv1">
+                <div className="row chatbot-text">
                     <div className="col-md-3"></div>
-                    <div className="col-md-6 textDiv">
+                    <div className="col-md-6">
                         <div className="row">
-                            <div className="col-md-10">
-                                <input type="text" className="text" id="text" onChange={this.setPrompt}/>
+                            <div className="col-md-10 modal-new-message-box">
+                                <input type="text" className="message-text message" id="text" onChange={this.setPrompt}/>
                             </div>
                             <div className="col-md-1">
-                                <input type="button" className="btn1" value="Send" onClick={this.sendRequest} />
+                                <button className="bi bi-send-fill send-btn" value="Send" onClick={this.sendRequest} ></button>
                             </div>
                         </div>
                     </div>

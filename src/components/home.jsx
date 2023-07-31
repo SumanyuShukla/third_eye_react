@@ -16,6 +16,9 @@ import {ReactComponent as Menu} from "../Menu.svg";
 import { ReactNotifications,Store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css'
 import { Navigate } from 'react-router-dom';
+import { FaRegPaperPlane } from 'react-icons/fa';
+import 'font-awesome/css/font-awesome.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 class Home extends Component {
 
@@ -74,25 +77,25 @@ class Home extends Component {
         })
         // console.log(data);
         if(Object.entries(data).length>0){
-            window.location.href="https://thirdeyep.azurewebsites.net/getDoc?data="+JSON.stringify(data);
+            window.location.href="https://dragonfly-third-eye.azurewebsites.net/getDoc?data="+JSON.stringify(data);
             // window.location.href="http://127.0.0.1:5000/getDoc?data="+JSON.stringify(data);
         }
     }
 
 
     render(){
-        if(!this.props.isLoggedIn){
-            return <Navigate to='/' />
-        }else{
+        // if(!this.props.isLoggedIn){
+        //     return <Navigate to='/' />
+        // }else{
         let chat=<div style={{height:'400px', overflow:"hidden"}}></div>;
         if(this.props.chat.chat !=''&&this.props.chat.chat!=null){
-        chat=this.props.chat.chat.map((c,index)=>{return c.sender=="delphi"?<div className="row" key={index}><div className="col-md-4 delphiMessage" style={{whiteSpace: "pre-line",marginLeft:"55px"}}>{c.message}</div>
+        chat=this.props.chat.chat.map((c,index)=>{return c.sender=="delphi"?<div className="row" key={index}><div className="col-md-1"><img src="/assets/images//Robot.svg" alt="EY" style={{marginLeft:'70px'}} /></div><div className="col-md-4 msg rcvd" style={{whiteSpace: "pre-line",marginLeft:"55px"}}>{c.message}</div>
         </div>
-        :<div className="row" key={index}><div className="col-md-8"></div><div className="col-md-4 userMessage" style={{whiteSpace: "pre-line"}}>{c.message}</div></div>})
+        :<div className="row" key={index}><div className="col-md-8"></div><div className="col-md-4 msg sent" style={{whiteSpace: "pre-line"}}>{c.message}</div></div>})
         }
         return(
             <div className="container-fluid">
-                <div className="row header ">
+                {/* <div className="row header ">
                 <div className="col-md-2 float-left sidebar">
                 <Menu className="menuIcon"/>
                     </div>
@@ -101,40 +104,49 @@ class Home extends Component {
                         <span className="thirdEyeLabel">Third Eye</span>
                     </div>
                     <div className="col-md-6 float-left userMenuPanel">
-                    <Refresh fill="white" style={{width:'20px',height: '20px',}}/>
-                    <Help fill="white" style={{width:'20px',height: '20px', margin:'0 0 0 10px'}}/>
-                    <Notification  fill="white" style={{width:'20px',height: '20px', margin:'0 0 0 10px'}}/>
-                    <User fill="white" style={{width:'20px',height: '20px', margin:'0 0 0 10px'}}/>
                     </div>
-                    </div>
+                    </div> */}
+                    <div className="col-12 chatbot-header">
+                    <img className="mx-3" src="/assets/images//Robot.svg" alt="EY" />
+                    <div className="chatbot-header-text">Third Eye</div>
+                    {/* <div className="col mx-3">
+                        <span
+                            className="bi bi-arrow-clockwise pull-right cursor-pointer text-white"
+                            title="Clear Chat"
+                            // onClick={clearChat}
+                        >
+                            <span className="mx-auto">Clear Chat</span>
+                        </span>
+                    </div> */}
+                </div>
                     {/* <div className="row header topPanel">
                     
                     <div className="col-md-2 float-left">
                         
                     </div>
                 </div> */}
-                <div className="row">
+                <div className="row chatbot-body">
                    {chat}
                 </div>
-                <div className="row buttonDiv">
+                <div className="row chatbot-text">
                     <div className="col-md-3"></div>
-                    <div className="col-md-6 textDiv">
+                    <div className="col-md-6">
                         <div className="row">
-                            <div className="col-md-10">
-                                <input type="text" className="text" id="text" onChange={this.setPrompt}/>
+                            <div className="col-md-10 modal-new-message-box">
+                                <input type="text" className="message-text message" id="text" onChange={this.setPrompt} placeholder="Enter your message here (use Shift + Enter for next line)"/>
                             </div>
                             <div className="col-md-1">
-                                <input type="button" className="btn1" value="Send" onClick={this.sendRequest} />
+                                <button className="bi bi-send-fill send-btn" value="Send" onClick={this.sendRequest} ></button>
                             </div>
                         </div>
                     </div>
                     <div className="col-md-2">
-                        <input type="button" className="btn1" value="Download" onClick={this.createDoc} />
+                        <button className="bi bi-download send-btn" value="Download" onClick={this.createDoc} ></button>
                     </div>  
                 </div>  
             </div>
         )
-        }
+        // }
     }
 }
 

@@ -67,8 +67,8 @@ class Template extends Component{
         }
         else{
             return(
-                <div className="container-fluid">
-                    <div className="row header ">
+                <div className="container-fluid chatbot-body">
+                    {/* <div className="row header ">
                 <div className="col-md-2 float-left sidebar">
                 <Menu className="menuIcon"/>
                     </div>
@@ -82,7 +82,14 @@ class Template extends Component{
                     <Notification  fill="white" style={{width:'20px',height: '20px', margin:'0 0 0 10px'}}/>
                     <User fill="white" style={{width:'20px',height: '20px', margin:'0 0 0 10px'}}/>
                     </div>
-                    </div>
+                    </div> */}
+
+
+<div className="col-12 chatbot-header">
+                    <img className="mx-3" src="/assets/images//Robot.svg" alt="EY" />
+                    <div className="chatbot-header-text">Third Eye</div></div>
+
+
                     <div className="row">
                         {/* <div className="col-md-3"></div> */}
                         <div className="col-md-12 float-left">
@@ -96,7 +103,7 @@ class Template extends Component{
                                 <div class="row">
                                             <div className="col-md-12 float-left scratchBox ">
                                         <div className="scratchLabel">
-                                            <h4>Create from Scratch</h4>
+                                            <h4 style={{color:'white'}}>Create from Scratch</h4>
                                         </div>
                                         <div className="scratchMessage">
                                             <span className="scratchMessage1">Interact with Delphi</span>
@@ -107,10 +114,10 @@ class Template extends Component{
                                         </div>
                                         <div className="col-md-6 float-left scratchBtn">
                                             <div className="col-md-3 float-left btn1Div">
-                                            <input type="button"  class="exampleBtn" value="Proceed with Example" onClick={()=>this.setTemplate(false)} />
+                                            <input type="button"  className="exampleBtn" value="Proceed with Example" onClick={()=>this.setTemplate(false)} />
                                             </div>
                                             <div className="col-md-3 float-left btn2Div">
-                                            <input type="button" class="proceedBtn" value="Proceed" onClick={()=>this.setTemplate(true)} />
+                                            <input type="button" className="proceedBtn" value="Proceed" onClick={()=>this.setTemplate(true)} />
                                             </div>
                                         </div>
                                         </div>
@@ -121,7 +128,7 @@ class Template extends Component{
                                 <div class="row">
                                             <div className="col-md-12 float-left scratchBox " style={{paddingBottom: '45px'}}>
                                         <div className="scratchLabel">
-                                            <h4>Continue your Work</h4>
+                                            <h4 style={{color:'white'}}>Continue your Work</h4>
                                         </div>
                                         <div className="scratchMessage">
                                             <span className="scratchMessage1">Use Pre-made Components</span>
@@ -138,7 +145,7 @@ class Template extends Component{
                                         </div>
                                         <div className="col-md-6 float-left scratchBtn" >
                                             <div className="col-md-3 float-left continueBtnDiv">
-                                            <input type="button" class="proceedBtn" value="Proceed" onClick={this.sendFiles} />
+                                            <input type="button" className="proceedBtn" value="Proceed" onClick={this.sendFiles} />
                                             </div>
                                         </div>
                                         </div>
